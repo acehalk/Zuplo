@@ -1,0 +1,104 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My Zuplo API"
+  },
+  "paths": {
+    "/Hello-World": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Hello-World",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/hello-world)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "rate-limit-inbound"
+            ],
+            "outbound": [
+              "set-headers-outbound"
+            ]
+          }
+        },
+        "operationId": "e3ca412f-2621-48d5-b914-1c621d7a7d0f"
+      }
+    },
+    "/calculadora/soma": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Caluladora - Soma",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "soma",
+            "module": "$import(./modules/Calculadora)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "quota-inbound-calculadora"
+            ]
+          }
+        },
+        "operationId": "06c062e2-36a6-40ca-99ce-f87818d58753"
+      }
+    },
+    "/calculadora/subtracao": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Caluladora - Subtracao",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "subtracao",
+            "module": "$import(./modules/Calculadora)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "quota-inbound-calculadora"
+            ]
+          }
+        },
+        "operationId": "5f1ace34-cda5-42c7-8c66-7495a6bfc811"
+      }
+    },
+    "/calculadora/multiplicacao": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Caluladora - Multiplicacao",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "multiplicacao",
+            "module": "$import(./modules/Calculadora)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "quota-inbound-calculadora"
+            ]
+          }
+        },
+        "operationId": "579be746-2780-4be5-add2-76a6e1cd28a8"
+      }
+    }
+  }
+}
